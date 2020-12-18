@@ -68,7 +68,7 @@ public class Algorithm {
             ArrayList<IVertex> allRedVertice = graph.getAllRedVertice();
             int nb = allRedVertice.size();// trier par le sommet qui change le plus de sommet rouge en bleu et le moins de sommet bleu en rouge
             int todelete=new Random().nextInt(nb);
-            deletedVertice=allRedVertice.get(todelete).getTag(); //supression amléatoire d'un sommet rouge, random aucun calcul
+            deletedVertice=allRedVertice.get(todelete).getTag(); //supression aléatoire d'un sommet rouge, random aucun calcul
             graph.removeVertex(allRedVertice.get(todelete));
             System.out.println(" ITERATION  N° "+i);
             System.out.println("le sommet rouge "+deletedVertice+" a été supprimé");
