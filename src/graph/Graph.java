@@ -245,7 +245,9 @@ public class Graph {
         public IEdge next() {
             if ( ! secondMapIterator.hasNext() )
                 secondMapIterator = firstMapIterator.next().getValue().entrySet().iterator();
-            return secondMapIterator.next().getValue();
+            if(secondMapIterator.hasNext())
+                return secondMapIterator.next().getValue();
+            return null;
         }
     }
 

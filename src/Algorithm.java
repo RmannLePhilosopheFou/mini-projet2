@@ -1,5 +1,3 @@
-package algorithms;
-
 import graph.Graph;
 import graph.GraphBuilder;
 import models.IVertex;
@@ -7,11 +5,12 @@ import models.IVertex;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 
-public class FirstRedSequenceAlgo {
+public class Algorithm {
 
 
-    public FirstRedSequenceAlgo() { }
+    public Algorithm() { }
 
     public static ArrayList<IVertex> getSortedList (ArrayList<IVertex> list, int factor) { // triage par ordre decroissant
         ArrayList<IVertex> tmp=new ArrayList<>(list);
@@ -27,9 +26,9 @@ public class FirstRedSequenceAlgo {
         return tmp;
     }
 
-    public static void run (Graph graph){
+    public static void algorithm1(Graph graph){
         int i = 0;
-        while(graph.haveRedVertice())
+        while(graph.haveRedVertice()) //tant qu'il y'a toujours un sommet rouge dans le graphe
         {
             String deletedVertice="";
             i++;
@@ -59,13 +58,25 @@ public class FirstRedSequenceAlgo {
             System.out.println(graph);
         }
     }
+
+    public static  void algorithm2(Graph graph)
+    {
+        int i = 0;
+        while(graph.haveRedVertice()) {
+            String deletedVertice = "";
+            i++;
+            ArrayList<IVertex> allRedVertice = graph.getAllRedVertice();
+            int nb = allRedVertice.size();// trier par le sommet qui change le plus de sommet rouge en bleu et le moins de sommet bleu en rouge
+            int todelete=new Random().nextInt(nb);
+            deletedVertice=allRedVertice.get(todelete).getTag(); //supression amléatoire d'un sommet rouge, random aucun calcul
+            graph.removeVertex(allRedVertice.get(todelete));
+            System.out.println(" ITERATION  N° "+i);
+            System.out.println("le sommet rouge "+deletedVertice+" a été supprimé");
+            System.out.println(graph);
+        }
+    }
     public static void main(String[] args) {
-        System.out.println("-------------------------------\n");
-        System.out.println(GraphBuilder.G);
-        Graph g = GraphBuilder.G;
-        //System.out.println(g.getAllRedVertice());
-        //System.out.println(getSortedList(g.getAllRedVertice(),1));
-        run(GraphBuilder.G);
+
 
     }
 }
