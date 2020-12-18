@@ -165,6 +165,7 @@ public class Graph {
         s += "\nedges :";
         for ( IEdge e : edges() ){
             //s += " " + e;
+            if(e!=null)
             if(e.getColor().equals(Color.BLUE)) {
                 s += " " + ANSI_BLUE + e + ANSI_RESET;
             }else {

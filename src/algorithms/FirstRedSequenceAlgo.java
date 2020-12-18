@@ -33,8 +33,8 @@ public class FirstRedSequenceAlgo {
         {
             String deletedVertice="";
             i++;
-            ArrayList<IVertex> sortedRedVertices=getSortedList(graph.getAllRedVertice(),1);
-                int max = sortedRedVertices.get(0).numberOfRedToBlue(); // trier par le sommet qui change le plus de sommet rouge en bleu
+            ArrayList<IVertex> sortedRedVertices=getSortedList(graph.getAllRedVertice(),2);// trier par le sommet qui change le plus de sommet rouge en bleu et le moins de sommet bleu en rouge
+                int max = sortedRedVertices.get(0).numberOfRedToBlue();
                if(max>0) { // si la supression de ce sommet peut entrainer la coloration d'au moins un sommet rouge en bleu
                    deletedVertice=sortedRedVertices.get(0).getTag();
                graph.removeVertex(sortedRedVertices.get(0));
