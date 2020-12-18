@@ -26,7 +26,7 @@ public class Algorithm {
         return tmp;
     }
 
-    public static void algorithm1(Graph graph){
+    public static void algorithm1(Graph graph){  //l'algorithme la plus éfficace
         int i = 0;
         while(graph.haveRedVertice()) //tant qu'il y'a toujours un sommet rouge dans le graphe
         {
@@ -44,7 +44,6 @@ public class Algorithm {
                    {
                        deletedVertice=sortedRedVertices.get(0).getTag();
                        graph.removeVertex(sortedRedVertices.get(0)); // on supprime celui qui a le plus d'arrete bleu
-
                    }
                    else
                    {
@@ -59,7 +58,7 @@ public class Algorithm {
         }
     }
 
-    public static  void algorithm2(Graph graph)
+    public static  void algorithm2(Graph graph)  //l'algortihme la moins éfficace car elle supprime de manière aléatoire
     {
         int i = 0;
         while(graph.haveRedVertice()) {
@@ -75,8 +74,5 @@ public class Algorithm {
             System.out.println(graph);
         }
     }
-    public static void main(String[] args) {
 
-
-    }
 }
