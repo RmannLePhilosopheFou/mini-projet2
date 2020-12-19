@@ -12,6 +12,7 @@ public class GraphBuilder {
     //public static Graph D3 = graph("A C B D C E C G D A D F E A F B");
     public static Graph G = graph("A 0 B 1 0 A 0 C 1 0 C 1 A 0 1 B 1 D 0 1 C 1 D 0 0 C 1 E 1 0 E 1 D 0 1 E 1 F 0 0 F 0 E 1 0 G 0 E 1 1 G 0 F 0 0 G 0 H 1 1 H 1 F 0 1 H 1 D 0 0");
 
+
     public static Graph graph(String input) {
         Graph G = new Graph();
         buildGraph(G,input);
@@ -65,6 +66,34 @@ public class GraphBuilder {
             else G.addEdge(uu, vv, Color.RED);
         }
     }
+
+    public static Graph buildQuestion5Graph(double p, double q) {
+        Graph graph = new Graph();
+        for (int i = 0; i < 100; i++) {
+            double r = Math.random();
+            if(r < p) {
+                graph.addVertex(Integer.toString(i), Color.RED);
+            }
+            else {
+                graph.addVertex(Integer.toString(i), Color.BLUE);
+            }
+        }
+        for (IVertex v: graph.vertices()) {
+            for(IVertex v2: graph.vertices()) {
+                if(!v.equals(v2)) {
+                    double r = Math.random();
+                    if(r < q) {
+                        graph.addEdge(v, v2, Color.BLUE);
+                    }
+                    else {
+                        graph.addEdge(v, v2, Color.RED);
+                    }
+                }
+            }
+        }
+        return graph;
+    }
+
 
     private static IVertex addVertex(Graph G, String u, Color c) {
         IVertex v = G.getVertex(u);

@@ -26,7 +26,7 @@ public class Algorithm {
         return tmp;
     }
 
-    public static void algorithm1(Graph graph){  //l'algorithme la plus éfficace
+    public static int algorithm1(Graph graph){  //l'algorithme la plus éfficace
         int i = 0;
         while(graph.haveRedVertice()) //tant qu'il y'a toujours un sommet rouge dans le graphe
         {
@@ -34,12 +34,12 @@ public class Algorithm {
             i++;
             ArrayList<IVertex> sortedRedVertices=getSortedList(graph.getAllRedVertice(),2);// trier par le sommet qui change le plus de sommet rouge en bleu et le moins de sommet bleu en rouge
                 int max = sortedRedVertices.get(0).numberOfRedToBlue();
-               if(max>0) { // si la supression de ce sommet peut entrainer la coloration d'au moins un sommet rouge en bleu
-                   deletedVertice=sortedRedVertices.get(0).getTag();
-               graph.removeVertex(sortedRedVertices.get(0));
+               if(max > 0) { // si la supression de ce sommet peut entrainer la coloration d'au moins un sommet rouge en bleu
+                   deletedVertice = sortedRedVertices.get(0).getTag();
+                   graph.removeVertex(sortedRedVertices.get(0));
                }
                else {
-                   sortedRedVertices=getSortedList(sortedRedVertices,2);
+                   sortedRedVertices = getSortedList(sortedRedVertices,2);
                    if(sortedRedVertices.get(0).getNumberOfBlueEdge()>0)
                    {
                        deletedVertice=sortedRedVertices.get(0).getTag();
@@ -52,13 +52,14 @@ public class Algorithm {
                        graph.removeVertex(sortedRedVertices.get(sortedRedVertices.size()-1)); // on supprime celui qui a le moins d'arrete rouge
                    }
                }
-            System.out.println(" ITERATION  N° "+i);
-            System.out.println("Le sommet rouge "+deletedVertice+" a été supprimé");
-            System.out.println(graph);
+            /*System.out.println(" ITERATION  N° "+i);
+            System.out.println("Le sommet rouge "+deletedVertice+" a été supprimé");*/
+            //System.out.println(graph);
         }
+        return i;
     }
 
-    public static  void algorithm2(Graph graph)  //l'algortihme la moins éfficace car elle supprime de manière aléatoire
+    public static int algorithm2(Graph graph)  //l'algortihme la moins éfficace car elle supprime de manière aléatoire
     {
         int i = 0;
         while(graph.haveRedVertice()) {
@@ -69,10 +70,11 @@ public class Algorithm {
             int todelete=new Random().nextInt(nb);
             deletedVertice=allRedVertice.get(todelete).getTag(); //supression aléatoire d'un sommet rouge, random aucun calcul
             graph.removeVertex(allRedVertice.get(todelete));
-            System.out.println(" ITERATION  N° "+i);
-            System.out.println("le sommet rouge "+deletedVertice+" a été supprimé");
-            System.out.println(graph);
+            //System.out.println(" ITERATION  N° "+i);
+            //System.out.println("le sommet rouge "+deletedVertice+" a été supprimé");
+            //System.out.println(graph);
         }
+        return i;
     }
 
 }
