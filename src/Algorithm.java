@@ -35,6 +35,7 @@ public class Algorithm {
             ArrayList<IVertex> sortedRedVertices=getSortedList(graph.getAllRedVertice(),0);// trier par le sommet rouge qui a le moins de sommet rouge adjacent
                     deletedVertice=sortedRedVertices.get(sortedRedVertices.size()-1).getTag();
                     graph.removeVertex(sortedRedVertices.get(sortedRedVertices.size()-1)); //
+
             if(debug) {
                 System.out.println(" ITERATION  N° "+i);
                 System.out.println("Le sommet rouge "+deletedVertice+" a été supprimé");
