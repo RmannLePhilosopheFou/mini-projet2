@@ -195,11 +195,9 @@ public class Graph {
     public ArrayList<IVertex>  getAllRedVertice()
     {
         ArrayList<IVertex> allRedVertex= new ArrayList<>();
-        Iterator<IVertex> it =vertices().iterator();
-        while(it.hasNext()) {
-            IVertex v = it.next();
-           if(v.getColor()==Color.RED)
-               allRedVertex.add(v);
+        for (IVertex v : vertices()) {
+            if (v.getColor() == Color.RED)
+                allRedVertex.add(v);
         }
     return allRedVertex;
     }

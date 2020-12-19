@@ -67,9 +67,9 @@ public class GraphBuilder {
         }
     }
 
-    public static Graph buildQuestion5Graph(double p, double q) {
+    public static Graph buildQuestion5Graph(int n, double p, double q) {
         Graph graph = new Graph();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < n; i++) {
             double r = Math.random();
             if(r < p) {
                 graph.addVertex(Integer.toString(i), Color.RED);

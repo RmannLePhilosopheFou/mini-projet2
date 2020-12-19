@@ -42,7 +42,7 @@ public class Vertex implements IVertex {
     }
     public int getNumberRedAdjacents() {
         int nb=0;
-        Iterable<IVertex> adjacent=fromGraph.adjacents(this);
+        Iterable<IVertex> adjacent = fromGraph.adjacents(this);
         for(IVertex vertex:adjacent)
         {
             if(vertex.getColor()==Color.RED)
