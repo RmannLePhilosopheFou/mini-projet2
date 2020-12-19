@@ -1,11 +1,8 @@
 import graph.Graph;
 import graph.GraphBuilder;
 
-import java.text.DecimalFormat;
-
 public class Main {
     public static void main(String[] args) {
-        DecimalFormat df = new DecimalFormat("#.#");
         System.out.println("---- Génération données question 7 ----\n");
         for (double p = 0; p <= 1; p+=0.1) {
             for (double q = 0; q <= 1; q+=0.1) {
