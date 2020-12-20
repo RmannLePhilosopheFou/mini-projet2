@@ -1,6 +1,4 @@
-package models;
-
-import models.tools.Color;
+package Utils;
 
 public interface IVertex extends Comparable<IVertex>{
 

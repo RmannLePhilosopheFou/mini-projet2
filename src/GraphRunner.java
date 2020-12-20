@@ -1,9 +1,7 @@
-import graph.Edge;
 import graph.Graph;
 import graph.GraphBuilder;
-import graph.Vertex;
-import models.IEdge;
-import models.IVertex;
+import Utils.IEdge;
+import Utils.IVertex;
 
 public class GraphRunner {
 

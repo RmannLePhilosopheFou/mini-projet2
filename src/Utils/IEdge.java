@@ -1,6 +1,4 @@
-package models;
-
-import models.tools.Color;
+package Utils;
 
 public interface IEdge extends Comparable<IEdge>{
 

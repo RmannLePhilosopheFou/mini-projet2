@@ -2,9 +2,9 @@ package graph;
 
 import exception.BadVertexException;
 import exception.DuplicateTagException;
-import models.IEdge;
-import models.IVertex;
-import models.tools.Color;
+import Utils.IEdge;
+import Utils.IVertex;
+import Utils.Color;
 
 import java.util.*;
 

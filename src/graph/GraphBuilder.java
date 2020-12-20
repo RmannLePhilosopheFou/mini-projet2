@@ -1,8 +1,8 @@
 package graph;
 
 import exception.BadInputGraphException;
-import models.IVertex;
-import models.tools.Color;
+import Utils.IVertex;
+import Utils.Color;
 
 import java.util.Scanner;
 

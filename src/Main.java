@@ -1,6 +1,5 @@
 import graph.Graph;
 import graph.GraphBuilder;
-import models.IVertex;
 
 public class Main {
     public static void main(String[] args) {

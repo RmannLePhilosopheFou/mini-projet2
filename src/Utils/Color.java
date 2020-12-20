@@ -1,4 +1,4 @@
-package models.tools;
+package Utils;
 
 public enum Color {
     RED,
