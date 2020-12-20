@@ -10,7 +10,6 @@ public class Algorithm {
     public Algorithm() { }
 
     public static ArrayList<IVertex> getSortedList (ArrayList<IVertex> list, int factor) { // triage par ordre decroissant
-        ArrayList<IVertex> tmp = new ArrayList<>(list);
         Comparator<IVertex> comparator;
         if(factor == 0)  // trier la liste des sommets par celui qui a le plus grand nombre de sommets adjacents rouge
             comparator = Comparator.comparing(IVertex::getNumberRedAdjacents);
@@ -19,8 +18,8 @@ public class Algorithm {
         else
             comparator = Comparator.comparing(IVertex::getNumberOfBlueEdge); // trier la liste des sommets par celui qui transforme le plus grand nombre de sommet rouge en bleu et le moins de sommet bleu en rouge
 
-        tmp.sort(comparator.reversed());
-        return tmp;
+        list.sort(comparator.reversed());
+        return list;
     }
 
     public static int algorithm1(Graph graph, boolean debug){  //l'algorithme la plus éfficace

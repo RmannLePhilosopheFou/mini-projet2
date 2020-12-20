@@ -17,7 +17,7 @@ public class Graph {
 
 
 
-    private Map<IVertex, List<IVertex>> adjacencyList;
+    private Map<IVertex, List<IVertex>> vertices;
     private Map<IVertex, Map<IVertex, IEdge>> edges;
     private Map<String, IVertex> tags;
     private Map<IVertex, Integer> inDegree;
@@ -25,19 +25,19 @@ public class Graph {
 
     public Graph(){
         tags = new HashMap<String, IVertex>();
-        adjacencyList = new HashMap<IVertex, List<IVertex>>();
+        vertices = new HashMap<IVertex, List<IVertex>>();
         edges = new HashMap<IVertex, Map<IVertex, IEdge>>();
         inDegree = new HashMap<IVertex, Integer>();
         nbEdges = 0;
     }
 
     public int nbVertices() {
-        return adjacencyList.size();
+        return vertices.size();
     }
 
     public Iterable<IVertex> adjacents(IVertex u) {
         checkVertex(u);
-        return adjacencyList.get(u);
+        return vertices.get(u);
     }
 
     public Iterable<IEdge> incidents(IVertex u) {
@@ -60,7 +60,7 @@ public class Graph {
             throw new DuplicateTagException(tag);
         Vertex v = new Vertex(this,tag, color);
         tags.put(tag, v);
-        adjacencyList.put(v,new LinkedList<IVertex>());
+        vertices.put(v,new LinkedList<IVertex>());
         inDegree.put(v,0);
         return v;
     }
@@ -71,15 +71,15 @@ public class Graph {
     }
 
     private boolean add(IVertex u, IVertex v) {
-        if ( adjacencyList.get(u).contains(v) )
+        if ( vertices.get(u).contains(v) )
             return false;
-        adjacencyList.get(u).add(v);
+        vertices.get(u).add(v);
         return true;
     }
 
     protected boolean remove(IVertex u, IVertex v) {
-        if ( adjacencyList.get(u).contains(v) ){
-            adjacencyList.get(u).remove(v);
+        if ( vertices.get(u).contains(v) ){
+            vertices.get(u).remove(v);
             return true;
         }
         return false;
@@ -115,7 +115,7 @@ public class Graph {
         for (IEdge edge: incidents(v)) {
             if(edge != null)edge.destination().setColor(edge.getColor());
         }
-        if (adjacencyList.containsKey(v)) adjacencyList.remove(v);
+        if (vertices.containsKey(v)) vertices.remove(v);
         if (edges.containsKey(v)) {
             nbEdges -= edges.get(v).size();
             edges.remove(v);
@@ -135,7 +135,7 @@ public class Graph {
 
     public int outDegree(IVertex u) {
         checkVertex(u);
-        return adjacencyList.get(u).size();
+        return vertices.get(u).size();
     }
 
     public int inDegree(IVertex u) {
@@ -177,7 +177,7 @@ public class Graph {
     }
 
     public Iterable<IVertex> vertices() {
-        return adjacencyList.keySet();
+        return vertices.keySet();
     }
 
     public Iterable<IEdge> edges() {
@@ -274,7 +274,7 @@ public class Graph {
 
         IncidentEdgeIterator(IVertex u) {
             origin = u;
-            adjacents = adjacencyList.get(u).iterator();
+            adjacents = vertices.get(u).iterator();
         }
 
         public Iterator<IEdge> iterator() {
