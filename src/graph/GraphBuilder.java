@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 public class GraphBuilder {
     public static Graph D1 = graph("A 1 E 1 0 B 0 D 1 1 B 1 F 1 0 C 1 E 0 1 D 1 F 0 1 F 1 C 0 1 F 1 E 1 1 G 0 A 0 0 G 1 B 1 1 G 0 C 0 0");
-    //public static Graph D2 = graph("A C A E B D D F D G E C F B");
-    //public static Graph D3 = graph("A C B D C E C G D A D F E A F B");
     public static Graph G = graph("A 0 B 1 0 A 0 C 1 0 C 1 A 0 1 B 1 D 0 1 C 1 D 0 0 C 1 E 1 0 E 1 D 0 1 E 1 F 0 0 F 0 E 1 0 G 0 E 1 1 G 0 F 0 0 G 0 H 1 1 H 1 F 0 1 H 1 D 0 0");
 
 
